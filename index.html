@@ -1,0 +1,691 @@
+<!doctype html>
+<html>
+<head>
+    <title>Candace</title>
+    <meta charset="utf-8"/>
+	<link rel="shortcut icon" type="image/png" href="Imagens/kissclipart-princess-crown-icon-png-clipart-tiara-crown-comput-cfafcbbb67e63170.png"/>
+
+    <!-- define a viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- captura e define a proporção do documento em relação à largura do display do dispositivo -->
+	<!-- Bootstrap: no modo offline é possível mudar algumas cores e temas. É preferível trabalhar no modo online, porque diminui o tráfego de dados do domínio -->
+
+    <!-- inserindo css do Bootstrap -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="all" /><!-- modo online -->
+
+	<!-- inserindo css do Font Awesome -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all" /><!-- Banco de ícones para o site -->
+
+    <!-- inserindo css personalizado -->
+    <link href="CSS/Estilos.css" rel="stylesheet" media="all" /><!-- dá para trabalhar com o seu próprio CSS -->
+
+	<!-- Bootstrap parte do princípio de que todo display é divido em 12 colunas, ou seja, a tela é divida em, no máximo, 12 colunas - porém, ele define 4 medidas: para o smartphone(XS); para o tablet(SM); para o desktop(MD); e para os monitores widescreen(LG). Sempre que tivermos a representação para tela de smartphone, usaremos a definição XS, e assim por diante. Essas medidas são precedidas pelo prefixo col, que define a quantidade de colunas - ex.: para smartphone, fica: COL-XS-12, indicando que esse objeto utilizará toda a largura da tela. Se quiser criar uma coluna menor à esquerda para a barra de navegação, por exemplo, havendo barra de navegação e barra de conteúdo, haverá COL-MD-5 para a navegação, por exemplo, e para completar a barra de conteúdo, COL-MD-7. Se extrapolar, o resto do conteúdo ficará quebrado na parte de baixo. -->
+
+	<!-- Ids da galeria de fotos -->
+	<style>
+body{
+	margin-top:0px;
+	padding-top: 70px;
+	background-color: #F8F8F8;
+}
+
+section{
+	padding-top: 49px;
+	padding-bottom: 15px;
+	min-height: 100vh;
+}
+
+footer{
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	background-color: #838B83;
+	color: #fff;
+	text-align: center;
+	font: 1.2em Garamond;
+}
+
+a:link {
+   color: #000000;
+   text-decoration: none;
+}
+
+a:visited {
+    color: #000000;
+	text-decoration: none;
+}
+
+a:hover {
+    color: #000000;
+	text-decoration: underline;
+}
+
+a:active {
+    color: #000000;
+	text-decoration: none;
+}
+
+.linhaCinza{
+	background: gray;
+}
+
+.bg-padding{
+	padding: 15px;
+}
+
+.areaIcones{
+	margin-top: 15px;
+}
+
+.alinhaIcone{
+	text-align: center;
+}
+
+.banner-container{
+	margin-left: 0px;
+	position: relative;
+	z-index: 1;
+}
+
+.transbox {
+  margin-top: 15%;
+  margin-left: 36%;
+  position: absolute;
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  opacity: 0.8;
+}
+
+.transbox p {
+  color: #838B83;
+}
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+/*
+  WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+  Need to override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+    }
+}
+
+.hvrbox,
+.hvrbox * {
+	box-sizing: border-box;
+}
+.hvrbox {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+}
+.hvrbox img {
+	max-width: 100%;
+}
+.hvrbox .hvrbox-layer_bottom {
+	display: block;
+}
+.hvrbox .hvrbox-layer_top {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	padding: 15px;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+.hvrbox:hover .hvrbox-layer_top,
+.hvrbox.active .hvrbox-layer_top {
+	opacity: 1;
+}
+.hvrbox .hvrbox-text {
+	text-align: center;
+	font-size: 18px;
+	text-shadow: 2px 2px 2px #000;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.hvrbox .hvrbox-text_mobile {
+	font-size: 15px;
+	border-top: 1px solid rgba(179, 179, 179, 0.7);
+	margin-top: 5px;
+	padding-top: 2px;
+	display: none;
+}
+.hvrbox.active .hvrbox-text_mobile {
+	display: block;
+}
+
+.hvrbox .hvrbox-layer_slidedown {
+	-moz-transform: translateY(-100%);
+	-webkit-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+.hvrbox:hover .hvrbox-layer_slidedown,
+.hvrbox.active .hvrbox-layer_slidedown {
+	-moz-transform: translateY(0);
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.logo{
+	text-align: center;
+	font: 7.5em Garamond;
+}
+
+.recuo{
+	text-indent: 4em;
+}
+
+.sc {
+    bottom:10%;
+    right:5%;
+	text-align:right;
+    position:relative;
+    display:block;
+    font: 1.2em ##838B83 Roboto;
+}
+
+.avatar {
+    position:relative;
+    border-radius:2px;
+    vertical-align:left;
+	background-color:#ffffff;	}
+
+.avatar img {
+    width:50px;
+    height:50px; }
+
+
+/* header */
+#header {
+    width:100%;
+    position:absolute;
+    top:0;
+    z-index:90;
+    left:0;
+    margin:0;
+    padding:0;
+    background:#ffffff;
+	}
+
+#header .h-image {
+    width:100%;
+    min-height:60px;
+    height:260px;
+    background-color:#dfcac9;
+	background-image: url('http://static.tumblr.com/c65f3621a8daf1648e1120cb6ec50d80/ev0x8sk/UHAork2y1/tumblr_static_8ok3ng0ad0g0c88oso88go0g0.png');
+    background-size:auto 100%;
+    background-repeat:no-repeat;
+    background-position:top center;}
+
+#header .h-avatar {
+    position:relative;
+    left:50%;
+    margin-left:-28px;
+    margin-top:-30px;
+    display:inline-block;
+    border-radius:2px;
+    vertical-align:middle;
+	background-color:#ffffff;	}
+
+#header .h-avatar img {
+    border:3px solid #ffffff;
+    border-radius:2px;
+    width:50px;
+    height:50px; }
+
+#header .h-info {
+    padding:30px 25px 0px;
+    padding-top:15px;
+    width:540px;
+    margin-left:-295px;
+    text-align:center;
+    left:50%;
+    position:relative; }
+
+#header .h-desc {
+    text-align:center;
+    padding:10px 0 0;
+    vertical-align:middle;
+    display:inline-block;
+	color: #999999;
+	position:relative;
+	font: 8px Roboto, sans-serif;
+	letter-spacing: .75px;
+    font-weight: 400;
+	text-transform:uppercase;
+	line-height: 8px;
+}
+
+
+/*links */
+#h-links, #h-links-hidden {
+    width:100%;
+    position:absolute;
+    display:block;
+    padding:15px 0 8px;
+    border-bottom:1px solid #eeeeee;
+    background:#ffffff;
+    text-align:center;
+    z-index:90;
+    line-height:15px;
+	margin-top: 288px;}
+
+#h-links-hidden { position:relative;
+    opacity:0;
+    z-index:-100;
+    visibility:hidden; }
+
+#h-links.fix, .fix {
+    position:fixed!important;
+    display:block;
+    top:0; }
+
+#h-links a {
+    display:inline-block;
+    width:80px;
+    margin:8px 5px 5px;
+    color:#666666;
+    text-transform:uppercase;
+    font-size:7px;
+    letter-spacing:1px;
+    font-weight:500;
+    border-bottom:none;
+    overflow:hidden;}
+
+#h-links a:hover { color:#dfcac9; }
+
+#h-links a:after {
+transition:0.4s ease-in-out;
+-webkit-transition:0.4s ease-in-out;
+-moz-transition:0.4s ease-in-out;
+}
+
+#h-links a:hover:after {
+width:100%;
+transition:0.4s ease-in-out;
+-webkit-transition:0.4s ease-in-out;
+-moz-transition:0.4s ease-in-out;
+
+}
+
+#h-links i, .hide b {
+    text-align:center;
+    margin-bottom:2px;
+    transition:.2s;
+    display:block;
+    font-size:10px; }
+
+.hide { display:none; }
+
+.hide b { margin-bottom:0!important; }
+
+.hide a:hover b {color:#dfcac9; }
+	</style>
+
+	<script type="text/javascript" src="js/jquery.js" ></script>
+	<script type="text/javascript" >
+
+		$(document).ready(function(){
+		$(".thumbnail").click(function(){
+		var address= $(this).attr("src");
+		$("#popup").fadeIn("slow");
+		$("#lightbox").attr("src",address);
+		});
+		$("#close").click(function(){
+		$("#popup").fadeOut("fast");
+		});
+		});
+	</script>​
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	$(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('.sc').fadeIn();
+        } else {
+            $('.sc').fadeOut();
+        }
+    });
+    //Click event to scroll to top
+    $('.sc').click(function(){
+        $('html, body').animate({scrollTop : 0},'slow');
+        return false;
+    });
+});
+	</script>
+
+</head>
+
+<body>
+
+<span id="topo"></span>
+<div id="header">
+    <div class="h-image"></div>
+    <div class="h-avatar"><img src="http://static.tumblr.com/d10c807e90152b7bf3aca0deba2b37b5/ev0x8sk/nMdork2y1/tumblr_static_7kk56nan5iko0488ok00wkoss.png"></div>
+    <div class="h-info">
+    <div class="h-desc"><p style="text-indent: 4em;">Flowers gathered in the morning,<br/>
+<p style="text-indent: 4em;">Afternoon they blossom on,<br/>
+<p style="text-indent: 4em;">Still are withered in the evening,<br/>
+<p style="text-indent: 4em;">You can be me when I'm gone.</div>
+</div>
+</div>
+</div>
+
+<div id="h-links">
+    <a href=""><i class="i-index fa fa-star-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i>index</a>
+    <a href=""><i class="i-message fa fa-envelope-open-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i>mensagem</a>
+    <a href=""><i class="i-archive fa fa-folder-open-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i>arquivo</a>
+    <a href=""><i class="i-links fa fa-sticky-note-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i>links<br></a>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="divslider" style="background-color: black;">
+	<div class="container-slider">
+		<div class="col-xs-offset-1 col-xs-10">
+		<div id="sliderprincipal" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000" style="width:100%;">
+			<!-- criação dos indicadores de seleção inferior das imagens -->
+			<ol class="carousel-indicators"><!-- trabalha um vetor aqui dentro, e sempre vai iniciar em 0. Se são, por exemplo, 4 imagens, será 0, 1, 2 e 3; se forem 10 imagens, será de 0 até 9 -->
+				<li class="active" data-target="#sliderprincipal" data-slide-to="0"></li>
+				<li data-target="#sliderprincipal" data-slide-to="1"></li>
+				<li data-target="#sliderprincipal" data-slide-to="2"></li>
+				<li data-target="#sliderprincipal" data-slide-to="3"></li>
+			</ol>
+
+			<!-- chamada das imagens que serão exibidas -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<figure class="banner-container" style="text-align:center;">
+					<div class="transbox col-xs-4 col-lg-3 col-md-3 col-sm-3" style="text-align:center;">
+						<div class="page-header" style="margin-top:0px;">
+							<p><h3 style="font:8em Brush Script MT; font-size:3vw;">Candace</h3></p>
+						</div>
+							<p style="font:1.1em roboto; font-size:1vw;">Art, Photography and Design</p>
+					</div>
+						<img src="Imagens/1200-x-600-template.jpg" alt="" style="width:90%;"/>
+					</figure>
+				</div>
+				<div class="item">
+					<figure class="banner-container" style="text-align:center;">
+					<div class="transbox col-xs-4 col-lg-3 col-md-3 col-sm-3" style="text-align:center;">
+						<div class="page-header" style="margin-top:0px;">
+							<p><h3 style="font:8em Brush Script MT; font-size:3vw;">Candace</h3></p>
+						</div>
+							<p style="font:1.1em roboto; font-size:1vw;">Art, Photography and Design</p>
+					</div>
+						<img src="Imagens/banner-2-1200x600.jpg" alt="" style="width:90%;"/>
+					</figure>
+				</div>
+				<div class="item">
+					<figure class="banner-container" style="text-align:center;">
+					<div class="transbox col-xs-4 col-lg-3 col-md-3 col-sm-3" style="text-align:center;">
+						<div class="page-header" style="margin-top:0px;">
+							<p><h3 style="font:8em Brush Script MT; font-size:3vw;">Candace</h3></p>
+						</div>
+							<p style="font:1.1em roboto; font-size:1vw;">Art, Photography and Design</p>
+					</div>
+						<img src="Imagens/MG_0997__-1200x600.jpg" alt="" style="width:90%;"/>
+					</figure>
+				</div>
+				<div class="item">
+					<figure class="banner-container" style="text-align:center;">
+					<div class="transbox col-xs-4 col-lg-3 col-md-3 col-sm-3" style="text-align:center;">
+						<div class="page-header" style="margin-top:0px;">
+							<p><h3 style="font:8em Brush Script MT; font-size:3vw;">Candace</h3></p>
+						</div>
+							<p style="font:1.1em roboto; font-size:1vw;">Art, Photography and Design</p>
+					</div>
+						<img src="Imagens/278c16_cc0b9da40f6e4585812ab439fbe4a324_mv2_d_3000_2000_s_2.jpg" alt="" style="width:90%;"/>
+					</figure>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="container">
+<div class="row areaIcones" style="margin-top: 45%;" id="quemsomos">
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+	<div class="page-header" style="margin-top:0px;">
+		<div class="caption">
+			<h1 style="text-align:center; font-family: Brush Script MT; color: #dfcac9;">Candace</h1>
+			<br/>
+			<p style="font: 1em Roboto; text-indent:2em; line-height: 25px; color: #666666;"> Candace, palavra derivada do termo meróico "kdke", era um título atribuído a uma espécie de dinastia de rainhas guerreiras, mulheres guerreiras que detinham o poder do reino de Meroé, no sul do Egito, pouco tempo antes da era cristã, formando uma sociedade matrilinear. No séc. III a.C. ao séc. II a. C., Meroé ficou reconhecida pela existência de mulheres governantes, as candaces. Se tem o conhecimento da existência de sete rainhas mas, provavelmente existiram outras. Foi no momento em que Meroé se tornou a capital do reino núbio que as mulheres ascenderam ao poder. Muitas informações sobre as mulheres de Meroé estão em fontes romanas.</p>
+		</div>
+	</div>
+	<div class="page-header" style="margin-top:0px;">
+		<div class="caption" align="center">
+		<h3 style="text-align:center; font-family: Roboto; color: #999999;">Autoria de Projeto</h3>
+			<br/>
+			<p style="font: 1em Roboto; line-height: 25px; color: #666666; text-align: left;">Ana Carolina Melo Pereira</p><br/>
+		</div>
+	</div>
+	<div class="page-header" style="margin-top:0px;">
+		<div class="caption">
+			<br/>
+			<p style="font: 1em Roboto; text-align:left; line-height: 25px; color: #666666;">© 2019 Candace de Meroë - Todos os direitos reservados</p><br/>
+		</div>
+	</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="thumbnail">
+			<div class="caption">
+			<p style="font: 14px Roboto; color:#666666;">Terça-Feira, 2 de Julho de 2019</p>
+			<hr></hr>
+				<div align="center">
+				<img class="img-responsive" src="Imagens/tumblr_nizstfo4jP1r1arpmo1_1280.jpg"/>
+				</div>
+				<hr></hr>
+				<a href=""><i class="fa fa-heart-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-comment-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-bookmark-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="thumbnail">
+			<div class="caption">
+			<p style="font: 14px Roboto; color:#666666;">Segunda-Feira, 1º de Julho de 2019</p>
+			<hr></hr>
+				<div align="center">
+				<img class="img-responsive" src="Imagens/tumblr_n30lbbTpFi1twe512o1_500.jpg"/>
+				</div>
+				<hr></hr>
+				<a href=""><i class="fa fa-heart-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-comment-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-bookmark-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="thumbnail">
+			<div class="caption">
+			<p style="font: 14px Roboto; color:#666666;">Sexta-Feira, 28 de Junho de 2019</p>
+			<hr></hr>
+			<p style="font: 1em Roboto; text-indent:2em; line-height: 25px; color: #666666;">Aenean nec finibus ligula. Sed ultrices aliquam est pellentesque gravida. Duis porta, enim a molestie ullamcorper, sapien velit sagittis nibh, nec ultrices lectus lorem vitae massa. Nullam sagittis tellus ullamcorper, feugiat turpis ut, ornare ex. In elementum elementum justo commodo vehicula. Cras eleifend placerat ligula. Fusce dictum ante at tempus bibendum. Cras et mauris at nisl varius vehicula ac in velit.</p>
+			<hr></hr>
+				<a href=""><i class="fa fa-heart-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-comment-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-bookmark-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="thumbnail">
+			<div class="caption">
+			<p style="font: 14px Roboto; color:#666666;">Quarta-Feira, 26 de Junho de 2019</p>
+			<hr></hr>
+				<div align="center">
+				<img class="img-responsive" src="Imagens/tumblr_o8z58l8mg71ray09ko1_1280.jpg"/>
+				</div>
+				<hr></hr>
+				<a href=""><i class="fa fa-heart-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-comment-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-bookmark-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="thumbnail">
+			<div class="caption">
+			<p style="font: 14px Roboto; color:#666666;">Sexta-Feira, 14 de Junho de 2019</p>
+			<hr></hr>
+				<div align="center">
+				<img class="img-responsive" src="Imagens/tumblr_of9amr9xvV1r8g9bio1_1280.jpg"/>
+				</div>
+				<hr></hr>
+				<a href=""><i class="fa fa-heart-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-comment-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-bookmark-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="thumbnail">
+			<div class="caption">
+			<p style="font: 14px Roboto; color:#666666;">Quinta-Feira, 6 de Junho de 2019</p>
+			<hr></hr>
+				<div class="thumbnail">
+				<p style="font: 1em Roboto; text-indent:2em; line-height: 25px; color: #666666;">OLIVIA THOMAS COMENTOU:</u></a></p>
+				<p style="font: 1em Roboto; text-indent:2em; line-height: 25px; color: #666666;">Nossa existência deforma o universo. Isso é responsabilidade.</u></a></p>
+				</div>
+				<p style="font: 1em Roboto; text-align: left; line-height: 25px; color: #666666;">"O mundo é tão sólido e estável quanto uma camada de espumas sob um poço sem fundo de águas negras.
+Significa que somos apenas bonecas. Que não sabemos nada sobre o que realmente acontece.
+Que só nos enganamos sobre controlarmos nossas vidas porque a uma distância menor do que a espessura do papel, coisas que nos levariam à loucura, se pensássemos nela por muito tempo, brincam conosco." - Rose Walker</p>
+				<hr></hr>
+				<a href=""><i class="fa fa-heart-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-comment-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-bookmark-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+		<div class="thumbnail">
+			<div class="caption">
+			<p style="font: 14px Roboto; color:#666666;">Terça-Feira, 4 de Junho de 2019</p>
+			<hr></hr>
+				<div align="center">
+				<img class="img-responsive" src="Imagens/tumblr_ogdy9zjuZZ1sw87xpo1_1280.jpg"/>
+				</div>
+				<hr></hr>
+				<a href=""><i class="fa fa-heart-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-comment-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+				<a href=""><i class="fa fa-bookmark-o" style="color:#666666; font-size: 15px;" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="sc"><a href="#topo" style="font: 1.2em #838B83 Garamond;">Voltar ao topo</a></div>
+
+	<!--  JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	$(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('.sc').fadeIn();
+        } else {
+            $('.sc').fadeOut();
+        }
+    });
+    //Click event to scroll to top
+    $('.sc').click(function(){
+        $('html, body').animate({scrollTop : 0},'slow');
+        return false;
+    });
+});
+	</script>
+
+	<!-- inserindo Java do Bootstrap -->
+	<!-- Última versão Java compilada e minificada -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
